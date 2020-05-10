@@ -40,3 +40,9 @@ services:
       - traefik.enable=true
     networks:
       - web
+
+networks:
+  web:
+    external: true
+  internal:
+    external: false

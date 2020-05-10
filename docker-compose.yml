@@ -34,7 +34,7 @@ services:
     restart: always
     labels:
       - traefik.backend=tkh-web
-      - traefik.frontend.rule=Host:thomaskenthurd.com
+      - traefik.frontend.rule=Host:thomaskenthurd.com,www.thomaskenthurd.com
       - traefik.docker.network=web
       - traefik.port=80
       - traefik.enable=true

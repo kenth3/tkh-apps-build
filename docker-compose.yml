@@ -21,7 +21,7 @@ services:
       - traefik.backend=tkh-api
       - traefik.frontend.rule=Host:api.thomaskenthurd.com
       - traefik.docker.network=web
-      - traefik.port=80
+      - traefik.port=8000
       - traefik.enable=true
     networks:
       - internal

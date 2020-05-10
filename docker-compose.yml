@@ -1,0 +1,42 @@
+version: "2"
+services:
+  tkhdb:
+    image: mongo:3.4.14
+    expose:
+      - "27017"
+    volumes:
+      - /data/db:/data/db
+    restart: always
+    labels:
+      - traefik.enable=false
+    networks:
+      - internal
+
+  tkh-api:
+    image: kenth/tkh-api:latest
+    depends_on:
+      - tkhdb
+    restart: always
+    labels:
+      - traefik.backend=tkh-api
+      - traefik.frontend.rule=Host:api.thomaskenthurd.com
+      - traefik.docker.network=web
+      - traefik.port=80
+      - traefik.enable=true
+    networks:
+      - internal
+      - web
+
+  tkh-web:
+    image: kenth/tkh-web:latest
+    depends_on:
+      - tkh-api
+    restart: always
+    labels:
+      - traefik.backend=tkh-web
+      - traefik.frontend.rule=Host:thomaskenthurd.com
+      - traefik.docker.network=web
+      - traefik.port=80
+      - traefik.enable=true
+    networks:
+      - web

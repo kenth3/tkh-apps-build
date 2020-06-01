@@ -14,6 +14,12 @@ services:
 
   tkh-api:
     image: kenth/tkh-api:latest
+    environment:
+      - NODE_ENV=docker
+      - AUTH_SECRET
+      - MAIL_KEY
+      - MAIL_DOMAIN
+      - RECIPIENT_EMAIL
     depends_on:
       - tkhdb
     restart: always

@@ -5,7 +5,7 @@ services:
     expose:
       - "27017"
     volumes:
-      - /data/db:/data/db
+      - "${DB_ROOT}/db:/data/db"
     restart: always
     labels:
       - traefik.enable=false

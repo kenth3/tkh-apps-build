@@ -46,18 +46,18 @@ services:
       - traefik.enable=true
     networks:
       - web
-  
+
   reed-room-ui:
-	image: kenth/reed-room-ui:latest
-	restart: always
-	labels:
-		- traefik.backend=reed-room-ui
-		- traefik.frontend.rule=Host:reedroom.thomaskenthurd.com
-		- traefik.docker.network=web
-		- traefik.port=80
-		- traefik.enable=true
-	  networks:
-		- web
+    image: kenth/reed-room-ui:latest
+    restart: always
+    labels:
+      - traefik.backend=reed-room-ui
+      - traefik.frontend.rule=Host:reedroom.thomaskenthurd.com
+      - traefik.docker.network=web
+      - traefik.port=80
+      - traefik.enable=true
+    networks:
+      - web
 
 networks:
   web:

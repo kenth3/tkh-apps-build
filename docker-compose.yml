@@ -1,11 +1,11 @@
-version: "2"
+version: '2'
 services:
   tkhdb:
     image: mongo:3.4.14
     expose:
-      - "27017"
+      - '27017'
     volumes:
-      - "${DB_ROOT}/db:/data/db"
+      - '${DB_ROOT}/db:/data/db'
     restart: always
     labels:
       - traefik.enable=false
@@ -46,6 +46,18 @@ services:
       - traefik.enable=true
     networks:
       - web
+  
+  reed-room-ui:
+	image: kenth/reed-room-ui:latest
+	restart: always
+	labels:
+		- traefik.backend=tkh-web
+		- traefik.frontend.rule=Host:reedroom.thomaskenthurd.com
+		- traefik.docker.network=web
+		- traefik.port=80
+		- traefik.enable=true
+	  networks:
+		- web
 
 networks:
   web:

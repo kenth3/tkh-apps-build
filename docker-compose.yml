@@ -56,7 +56,7 @@ services:
       - traefik.docker.network=web
       - traefik.port=80
       - traefik.enable=true
-      - traefik.frontend.auth.basic=tester:b@$$00n
+      - traefik.frontend.auth.basic=tester:Bassoon123
     networks:
       - web
 

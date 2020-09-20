@@ -51,7 +51,7 @@ services:
 	image: kenth/reed-room-ui:latest
 	restart: always
 	labels:
-		- traefik.backend=tkh-web
+		- traefik.backend=reed-room-ui
 		- traefik.frontend.rule=Host:reedroom.thomaskenthurd.com
 		- traefik.docker.network=web
 		- traefik.port=80

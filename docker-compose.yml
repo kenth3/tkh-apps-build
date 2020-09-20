@@ -55,7 +55,7 @@ services:
       - traefik.frontend.rule=Host:reedroom.thomaskenthurd.com
       - traefik.docker.network=web
       - traefik.port=80
-	  - traefik.enable=true
+      - traefik.enable=true
       - traefik.frontend.auth.basic=tester:b@$$00n
     networks:
       - web
